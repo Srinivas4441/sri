@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Age Calculator</h1>
+    <form action="{{ url_for('calculate_age') }}" method="post">
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="dob">Enter your date of birth:</label>
+        <input type="date" id="dob" name="dob" required>
+        <button type="submit">Calculate Age</button>
+    </form>
+    {% if name is not none %}
+        <p>{{ name }}, your age is:</p>
+        <p>{{ years }} years</p>
+        <p>{{ months }} months</p>
+        <p>{{ seconds }} seconds</p>
+    {% endif %}
+</div>
+{% endblock %}
